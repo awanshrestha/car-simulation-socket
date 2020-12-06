@@ -2,10 +2,10 @@
 A remote controlled 2D car driving simulation using socket.IO. I tried to build this simulation of a remote controlled car while learning socket.IO for making a real [remote controlled rover](https://techyexplorer.com/rover-control-from-cell-phone/). It consists of only basic controls. For more advanced controls, something like [Phaser](https://phaser.io/) could be used.
 
 ### The Car
-![remote controlled car driving simulation using socket](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "The car")
+![remote controlled car driving simulation using socket](./screenshots/car.JPG "The car")
 
 ### The Remote
-![remote controlled car driving simulation using socket](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "The remote")
+![remote controlled car driving simulation using socket](./screenshots/remote.JPG "The remote")
 
 ## How to run
 - Install Node.js
