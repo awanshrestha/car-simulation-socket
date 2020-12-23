@@ -1,46 +1,54 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var socket  = io.connect();
-    var topBool, rightBool, leftBool, bottomBool, rotateLeftBool, rotateRightBool = false;
-    // var directions = [ 'top', 'left', 'right', 'bottom', 'rotateLeft', 'rotateRight']
-    // directions.forEach( direction =>{
-    //   window[direction] = document.getElementById(direction)
-    // })
+  var socket  = io.connect();
+  var top = false;
+  var right = false;
+  var left = false;
+  var bottom = false;
+  var rotateLeft = false;
+  var rotateRight = false;
 
-    top.onmousedown = function(e){ topBool = true; };
-    top.onmouseup = function(e){ topBool = false; };
+  var topButton  = document.getElementById('top');
+  var leftButton  = document.getElementById('left');
+  var rightButton  = document.getElementById('right');
+  var bottomButton  = document.getElementById('bottom');
+  var rotateLeftButton  = document.getElementById('rotateLeft');
+  var rotateRightButton  = document.getElementById('rotateRight');
 
-    left.onmousedown = function(e){ leftBool = true; };
-    left.onmouseup = function(e){ leftBool = false; };
+  topButton.onmousedown = function(e){ top = true; };
+  topButton.onmouseup = function(e){ top = false; };
 
-    right.onmousedown = function(e){ rightBool = true; };
-    right.onmouseup = function(e){ rightBool = false; };
+  leftButton.onmousedown = function(e){ left = true; };
+  leftButton.onmouseup = function(e){ left = false; };
 
-    bottom.onmousedown = function(e){ bottomBool = true; };
-    bottom.onmouseup = function(e){ bottomBool = false; };
+  rightButton.onmousedown = function(e){ right = true; };
+  rightButton.onmouseup = function(e){ right = false; };
 
-    rotateLeft.onmousedown = function(e){ rotateLeftBool = true; };
-    rotateLeft.onmouseup = function(e){ rotateLeftBool = false; };
+  bottomButton.onmousedown = function(e){ bottom = true; };
+  bottomButton.onmouseup = function(e){ bottom = false; };
 
-    rotateRight.onmousedown = function(e){ rotateRightBool = true; };
-    rotateRight.onmouseup = function(e){ rotateRightBool = false; };
+  rotateLeftButton.onmousedown = function(e){ rotateLeft = true; };
+  rotateLeftButton.onmouseup = function(e){ rotateLeft = false; };
+
+  rotateRightButton.onmousedown = function(e){ rotateRight = true; };
+  rotateRightButton.onmouseup = function(e){ rotateRight = false; };
 
     function mainLoop() {
-        if ( topBool ) {
+        if ( top ) {
           socket.emit('move', 'top');
         }
-        if ( leftBool ) {
+        if ( left ) {
         socket.emit('move', 'left');
         }
-        if ( rightBool ) {
+        if ( right ) {
             socket.emit('move', 'right');
         }
-        if ( bottomBool ) {
+        if ( bottom ) {
           socket.emit('move', 'bottom');
         }
-        if ( rotateLeftBool ) {
+        if ( rotateLeft ) {
           socket.emit('move', 'rLeft');
         }
-        if ( rotateRightBool ) {
+        if ( rotateRight ) {
           socket.emit('move', 'rRight');
         }
        setTimeout(mainLoop, 25);
